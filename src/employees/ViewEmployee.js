@@ -30,8 +30,8 @@ export default function ViewEmployee() {
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                     <h2 className="text-center m-4">Employee Information</h2>
 
-                    <div className="card">
-                        <div className="card-header">
+                    <div className="container">
+                        <div className="container-header">
                             Details of Employee ID {employee.id}:
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">
