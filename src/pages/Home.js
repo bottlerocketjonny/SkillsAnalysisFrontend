@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosHeaders } from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import InstructionAlert from "../layout/InstructionAlert";
 
 export default function Home() {
 
@@ -26,10 +27,12 @@ export default function Home() {
     return (
         <div className='container'>
             <div className='py-4'>
-                <table className="table border shadow">
+            
+            
+                <table className="table border shadow-sm table-hover table-responsive">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">Id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Address</th>
@@ -65,7 +68,12 @@ export default function Home() {
 
                     </tbody>
                 </table>
+                <div className='container-sm py-4'>
+            <InstructionAlert />
+            </div>
             </div>
         </div>
     )
 }
+
+
