@@ -25,6 +25,10 @@ export default function EditEmployee() {
 
     useEffect(() => {
         loadEmployee();
+        const loadEmployee = async () => {
+            const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
+            setEmployee(result.data)
+        }
     }, [])
 
     const onSubmit = async (e) => {
@@ -32,11 +36,6 @@ export default function EditEmployee() {
         await axios.put(`https://skillsanalysisapp-production.up.railway.app/employee/update/${id}`, employee);
         navigate("/");
     };
-
-    const loadEmployee = async () => {
-        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
-        setEmployee(result.data)
-    }
 
     return (
 
