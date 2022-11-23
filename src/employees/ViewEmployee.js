@@ -16,14 +16,13 @@ export default function ViewEmployee() {
     const { id } = useParams();
 
     useEffect(() => {
-        const loadEmployee = async () => {
-            const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
-            setEmployee(result.data)
-            loadEmployee();
-        }
+        loadEmployee()
     }, [])
 
-
+    const loadEmployee = async () => {
+        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
+        setEmployee(result.data)
+    }
 
     return (
         <div className="container">
