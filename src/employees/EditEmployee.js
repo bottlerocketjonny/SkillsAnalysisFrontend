@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditEmployee() {
     let navigate = useNavigate();
@@ -27,15 +27,15 @@ export default function EditEmployee() {
         loadEmployee();
     }, [])
 
-    const onSubmit = async (e) => {
+    async function onSubmit(e) {
         e.preventDefault();
         await axios.put(`https://skillsanalysisapp-production.up.railway.app/employee/update/${id}`, employee);
         navigate("/");
-    };
+    }
 
-    const loadEmployee = async () => {
-        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
-        setEmployee(result.data)
+    async function loadEmployee() {
+        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`);
+        setEmployee(result.data);
     }
 
     return (

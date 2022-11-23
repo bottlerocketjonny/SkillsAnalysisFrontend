@@ -19,9 +19,9 @@ export default function ViewEmployee() {
         loadEmployee()
     }, [])
 
-    const loadEmployee = async () => {
-        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
-        setEmployee(result.data)
+    async function loadEmployee() {
+        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`);
+        setEmployee(result.data);
     }
 
     return (
