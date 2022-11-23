@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios, { AxiosHeaders } from 'axios';
+import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import InstructionAlert from "../layout/InstructionAlert";
 
 export default function Home() {
+
+    axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
     const [employee, setEmployees] = useState([]);                // react useState to init employees to an empty array
 
