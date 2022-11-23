@@ -20,7 +20,7 @@ export default function ViewEmployee() {
     }, [])
 
     const loadEmployee = async () => {
-        const result = await axios.get(`http://localhost:8080/employee/getOne/${id}`)
+        const result = await axios.get(`https://skillsanalysisapp-production.up.railway.app/employee/getOne/${id}`)
         setEmployee(result.data)
     }
 

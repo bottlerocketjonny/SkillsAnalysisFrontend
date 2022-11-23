@@ -14,12 +14,12 @@ export default function Home() {
     }, []);
 
     const loadEmployees = async () => {                              // async/await coz js executes line by line
-        const result = await axios.get("http://localhost:8080/employee/getAll");
+        const result = await axios.get("https://skillsanalysisapp-production.up.railway.app/employee/getAll");
         setEmployees(result.data);
     };
 
     const deleteEmployee = async (id) => {
-        await axios.delete(`http://localhost:8080/employee/delete/${id}`)
+        await axios.delete(`https://skillsanalysisapp-production.up.railway.app/employee/delete/${id}`)
         loadEmployees()
 
     }
@@ -27,8 +27,8 @@ export default function Home() {
     return (
         <div className='container'>
             <div className='py-4'>
-            
-            
+
+
                 <table className="table border shadow-sm table-hover table-responsive">
                     <thead>
                         <tr>
@@ -69,8 +69,8 @@ export default function Home() {
                     </tbody>
                 </table>
                 <div className='container-sm py-4'>
-            <InstructionAlert />
-            </div>
+                    <InstructionAlert />
+                </div>
             </div>
         </div>
     )
