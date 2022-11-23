@@ -22,12 +22,16 @@ export default function AddEmployee() {
         setEmployee({ ...employee, [e.target.name]: e.target.value })
     };
 
+    const axiosConfig = {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        }
+    };
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee, {
-            "Access-Control-Allow-Origin": "*"
-        });
+        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee, axiosConfig);
         navigate("/");
     };
 
