@@ -25,7 +25,9 @@ export default function AddEmployee() {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee);
+        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee, {
+            "Access-Control-Allow-Origin": "*"
+        });
         navigate("/");
     };
 
