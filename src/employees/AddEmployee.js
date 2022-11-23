@@ -22,18 +22,16 @@ export default function AddEmployee() {
         setEmployee({ ...employee, [e.target.name]: e.target.value })
     };
 
-    const axiosConfig = {
-        headers: {
-            'Content-Type': 'application/json;charset=UTF-8', 
-            "Access-Control-Allow-Origin": "*", 
-            "Accept": "application/json"
-        }
+    let headers = {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+        "Accept": "application/json"
     };
 
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee, axiosConfig);
+        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee, { "headers": headers });
         navigate("/");
     };
 
