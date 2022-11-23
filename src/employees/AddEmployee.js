@@ -22,9 +22,10 @@ export default function AddEmployee() {
         setEmployee({ ...employee, [e.target.name]: e.target.value })
     };
 
+
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("https://skillsanalysisapp-production.up.railway.app/employee/create", employee);
+        await axios.post("http://localhost:8080/employee/create", employee);
         navigate("/");
     };
 

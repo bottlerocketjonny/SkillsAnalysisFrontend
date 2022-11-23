@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosHeaders } from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import InstructionAlert from "../layout/InstructionAlert";
 
@@ -13,14 +13,14 @@ export default function Home() {
         loadEmployees();
     }, []);
 
-    async function loadEmployees() {
-        const result = await axios.get("https://skillsanalysisapp-production.up.railway.app/employee/getAll");
+    const loadEmployees = async () => {                              // async/await coz js executes line by line
+        const result = await axios.get("http://localhost:8080/employee/getAll");
         setEmployees(result.data);
-    }
+    };
 
-    async function deleteEmployee(id) {
-        await axios.delete(`https://skillsanalysisapp-production.up.railway.app/employee/delete/${id}`);
-        loadEmployees();
+    const deleteEmployee = async (id) => {
+        await axios.delete(`http://localhost:8080/employee/delete/${id}`)
+        loadEmployees()
 
     }
 
