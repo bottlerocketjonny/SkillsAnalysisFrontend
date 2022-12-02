@@ -5,8 +5,6 @@ import AddEmployee from './employees/AddEmployee';
 import EditEmployee from './employees/EditEmployee';
 import ViewEmployee from './employees/ViewEmployee';
 
-
-
 function App() {
   return (
     <div className="App">
